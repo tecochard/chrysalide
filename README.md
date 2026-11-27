@@ -2,6 +2,19 @@
 
 Application Tauri 2 hors ligne avec un moteur de morphing en Rust et un détecteur MediaPipe embarqué.
 
+## Télécharger et installer
+
+Ouvre la page de la [dernière version](https://github.com/tecochard/chrysalide/releases/latest). En bas, dans **Assets**, télécharge le fichier qui correspond à ton système :
+
+| Système (x86-64) | Fichier à télécharger | Commande d’installation |
+| --- | --- | --- |
+| Debian / Ubuntu | `Chrysalide_…_amd64.deb` | `sudo apt install ./Chrysalide_0.1.0_amd64.deb` |
+| Arch Linux | `chrysalide-…-x86_64.pkg.tar.zst` | `sudo pacman -U ./chrysalide-0.1.0-1-x86_64.pkg.tar.zst` |
+
+Ouvre un terminal dans le dossier de téléchargement et lance la commande en utilisant le nom exact du fichier téléchargé. Ensuite, lance **Chrysalide** depuis le menu des applications.
+
+Pas besoin de télécharger les archives **Source code**. Aucun installateur Windows ou macOS n’est disponible pour le moment.
+
 ## Bibliothèque
 
 Un seul fichier par compte Linux : `${XDG_DATA_HOME:-$HOME/.local/share}/fr.chrysalide.app/atelier.sqlite3`. Il contient les originaux, repères, PNG et recettes. Ce fichier n’est pas chiffré par l’application.
