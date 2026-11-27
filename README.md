@@ -4,14 +4,7 @@ Application Tauri 2 hors ligne avec un moteur de morphing en Rust et un détecte
 
 ## Télécharger et installer
 
-Ouvre la page de la [dernière version](https://github.com/tecochard/chrysalide/releases/latest). En bas, dans **Assets**, télécharge le fichier qui correspond à ton système :
-
-| Système (x86-64) | Fichier à télécharger | Commande d’installation |
-| --- | --- | --- |
-| Debian / Ubuntu | `Chrysalide_…_amd64.deb` | `sudo apt install ./Chrysalide_0.1.0_amd64.deb` |
-| Arch Linux | `chrysalide-…-x86_64.pkg.tar.zst` | `sudo pacman -U ./chrysalide-0.1.0-1-x86_64.pkg.tar.zst` |
-
-Ouvre un terminal dans le dossier de téléchargement et lance la commande en utilisant le nom exact du fichier téléchargé. Ensuite, lance **Chrysalide** depuis le menu des applications.
+Ouvre la page de la [dernière version](https://github.com/tecochard/chrysalide/releases/latest) et suit les instructions pour ton système.
 
 Pas besoin de télécharger les archives **Source code**. Aucun installateur Windows ou macOS n’est disponible pour le moment.
 
