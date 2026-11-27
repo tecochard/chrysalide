@@ -1,6 +1,6 @@
 # Chrysalide pour Linux
 
-Application Tauri 2 hors ligne avec un moteur de morphing en Rust et un détecteur MediaPipe embarqué. Pas de compte, de serveur HTTP ni de Python à l’exécution.
+Application Tauri 2 hors ligne avec un moteur de morphing en Rust et un détecteur MediaPipe embarqué.
 
 ## Bibliothèque
 
@@ -8,7 +8,6 @@ Un seul fichier par compte Linux : `${XDG_DATA_HOME:-$HOME/.local/share}/fr.chry
 
 - **Importer une bibliothèque** dans **Chenilles** : choisir une sauvegarde SQLite Chrysalide. L’appli copie les entrées sans recalculer les repères et sans modifier le fichier source. L’import est réservé à une bibliothèque vide pour éviter tout écrasement.
 - **Exporter la bibliothèque** : créer une copie SQLite autonome. Pour transférer sur un autre appareil, importer cette copie sur une installation vide.
-- Les PNG existants restent inchangés. Le moteur Rust ne promet pas de reproduire les pixels du moteur Python. Pour recalculer une recette ancienne, change un réglage après l’avoir ouverte.
 
 ## Compiler
 
