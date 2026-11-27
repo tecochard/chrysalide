@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chrysalide</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="shell masthead">
+    <h1 class="masthead-title">
+      <svg class="field-mark" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17c-4 4-9 1-7-3-4-2-3-8 0-8 2 0 5 2 7 6 2-4 5-6 7-6 3 0 4 6 0 8 2 4-3 7-7 3Zm0-5v7m0-7c0-3-1-5-3-6m3 6c0-3 1-5 3-6"/></svg>
+      Chrysalide
+    </h1>
+    <nav aria-label="Vues de l’atelier">
+      <a href="#bibliotheque">Chenilles</a><a id="nav-cocon" href="#composer">Cocon<span id="cocon-count" aria-hidden="true" hidden></span></a><a href="#historique">Papillons</a><a href="#jeu">Jeu</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <section id="bibliotheque">
+      <div class="section-head">
+        <h2>Chenilles</h2>
+        <div id="library-tools" class="library-tools"><button id="upload">Ajouter des chenilles</button><input id="files" type="file" accept="image/jpeg,image/png" multiple hidden></div>
+      </div>
+      <ul id="import-errors" role="alert" hidden></ul>
+      <div id="library" class="gallery"></div>
+      <p id="library-empty" class="hint" hidden>Pas encore de chenilles.</p>
+      <p id="library-drop-hint" hidden>Dépose tes images pour les ajouter</p>
+    </section>
+    <section id="composer" hidden>
+      <div id="composer-empty">
+        <p>Clique sur les photos des chenilles pour les sélectionner.</p>
+        <a id="choose-first-portraits" class="button-link" href="#bibliotheque">Aller dans Chenilles</a>
+      </div>
+      <div class="section-head" hidden><h2>Cocon</h2></div>
+      <div id="composer-workspace" class="workspace" hidden>
+        <div class="panel settings">
+          <div id="weights" role="group" aria-labelledby="weights-title" hidden>
+            <div class="actions"><h3 id="weights-title">Chenilles</h3><button id="clear-cocon" class="secondary" type="button" data-workshop-action>Tout vider</button></div>
+            <div id="weight-bar" aria-hidden="true"></div>
+            <div id="weight-controls"></div>
+          </div>
+          <div class="composer-settings-footer">
+            <div class="composer-options">
+              <fieldset id="frame" class="setting">
+                <legend>Cadrage</legend>
+                <div class="segments">
+                  <label><input type="radio" name="frame" value="full"><span>Tout</span></label>
+                  <label><input type="radio" name="frame" value="face" checked><span>Visage</span></label>
+                </div>
+              </fieldset>
+              <fieldset id="alpha" class="setting">
+                <legend>Opacité</legend>
+                <div class="segments">
+                  <label><input type="radio" name="alpha" value="max" checked><span>Maximum</span></label>
+                  <label><input type="radio" name="alpha" value="mean"><span>Moyenne</span></label>
+                </div>
+              </fieldset>
+            </div>
+            <a id="choose-portraits" class="button-link" href="#bibliotheque">Ajouter d’autres chenilles au cocon</a>
+          </div>
+        </div>
+        <div class="panel preview">
+          <div class="section-head"><h3 id="preview-title">Le cocon</h3><span id="dimensions" class="hint"></span><span id="preview-progress" class="hint" role="status" hidden></span></div>
+          <div id="preview-stage" class="stage" data-state="empty">
+            <div id="preview-empty" class="cocoon">
+              <svg aria-hidden="true" viewBox="0 0 112 112" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 17c19 2 41 1 74-7M34 17l-5 8m47-12 5-7M55 17c-1 8 2 10 2 14m0 0c10 1 17 11 20 22 6 19-2 41-16 49-13-5-25-19-27-38-2-15 9-33 23-33Z"/>
+                <path d="M39 48c8 5 24 3 32-5M35 60c13 5 31 2 41-7M35 71c12 4 31 1 43-7M39 82c13 3 27-1 37-7M46 92c8 0 18-3 24-8M60 101c6-9 12-28 8-47m-8-21c-9 9-16 23-15 39"/>
+              </svg>
+              <p id="preview-note">Sélectionnez au moins deux portraits.</p>
+            </div>
+            <img id="preview-image" alt="Visage issu de la fusion" hidden>
+            <canvas id="preview-face" role="img" aria-label="Visage issu de la fusion, détail agrandi" hidden></canvas>
+          </div>
+          <form id="pin-form" class="actions" hidden>
+            <label class="setting">Nom du papillon <input id="butterfly-name" type="text" maxlength="80" placeholder="Facultatif"></label>
+            <button id="save" disabled>Épingler le papillon</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section id="historique" hidden>
+      <div class="section-head"><h2>Papillons</h2></div>
+      <div id="history" class="specimen-board"></div>
+    </section>
+    <section id="jeu" hidden>
+      <div class="section-head"><h2>Jeu des mélanges</h2></div>
+      <p id="game-empty" class="hint">Chargement des chenilles…</p>
+      <div class="workspace" id="game-board" hidden>
+        <div class="panel game-mystery">
+          <div class="section-head"><h3>Le papillon mystère</h3></div>
+          <div id="game-stage" class="stage" data-state="empty" aria-busy="false">
+            <p id="game-wait" class="hint">Le papillon prend forme…</p>
+            <img id="game-image" alt="Papillon mystère à deviner" hidden>
+            <canvas id="game-face" role="img" aria-label="Papillon mystère à deviner" hidden></canvas>
+          </div>
+        </div>
+        <div class="panel game-guess">
+          <div class="section-head"><h3>Quelles chenilles se cachent dans ce papillon ?</h3><span id="game-count" class="hint"></span></div>
+          <div id="game-choices" class="game-choices" role="group" aria-label="Choisir deux chenilles"></div>
+          <div class="game-feedback-slot">
+            <p id="game-success-message" class="game-feedback-reserve" aria-hidden="true">Bravo, tu as retrouvé les deux chenilles du papillon !</p>
+            <p id="game-failure-message" class="game-feedback-reserve" aria-hidden="true">Pas cette fois !</p>
+            <p id="game-feedback" role="status"></p>
+          </div>
+          <div class="actions game-actions">
+            <button id="game-recipe" class="secondary" type="button" aria-disabled="true" title="Sélectionne 2 chenilles (0/2)">Ouvrir la recette</button>
+            <button id="game-next" type="button">Papillon suivant</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dialog id="portrait-delete" class="panel" role="alertdialog" aria-labelledby="portrait-delete-title" aria-describedby="portrait-delete-message">
+    <form method="dialog">
+      <h2 id="portrait-delete-title">Supprimer cette chenille ?</h2>
+      <p id="portrait-delete-message"></p>
+      <div class="actions">
+        <button type="submit" class="secondary" value="cancel" autofocus>Annuler</button>
+        <button type="submit" class="confirm-delete" value="delete">Supprimer</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast-region" role="status" aria-live="polite" aria-atomic="true"><p id="status"></p></div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "chrysalide-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"assets": "node prepare.mjs", "tauri": "tauri"},
+  "dependencies": {"@mediapipe/tasks-vision": "1.2.3"},
+  "devDependencies": {"@tauri-apps/cli": "^2"}
+}

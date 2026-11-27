@@ -1,0 +1,12 @@
+/target/
+/dist/
+/node_modules/
+/.cache/
+/gen/
+*.task
+*.sqlite*
+*.db
+*.db-wal
+*.db-shm
+*.deb
+*.dmg
